@@ -9,6 +9,7 @@
 
 # Bring our resin Token, URL, etc from resin.env file
 source ./resin.env
+APP_ID=$1
 
 # Patch call to set "should_track_latest_release"  to false
 echo "Disabling rolling release tracking for APP == $APP_ID"

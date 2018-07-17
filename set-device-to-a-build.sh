@@ -7,7 +7,8 @@
 ./check-configuration.sh || exit 1
 
 source ./resin.env
-DEVICE_UUID=$1
+APP_ID=$1
+DEVICE_UUID=$2
 DEVICE_ID=$(./get-device-id.sh $DEVICE_UUID)
 
 # For backwards compatibility, in case that a device for the provided parameter was not found
@@ -18,11 +19,11 @@ if ! [[ $DEVICE_ID =~ $IntRegex ]] && [[ $DEVICE_UUID =~ $IntRegex ]] ; then
 	DEVICE_ID=$DEVICE_UUID
 fi
 
-COMMIT=$2
+COMMIT=$3
 if [ -z $COMMIT ]; then
 	BUILD_ID="null"
 else
-	BUILD_ID=$(./get-build-id.sh $COMMIT)
+	BUILD_ID=$(./get-build-id.sh $APP_ID $COMMIT)
 fi
 echo "setting device $DEVICE_ID to commit $COMMIT with buildID = $BUILD_ID"
 curl -X PATCH "https://api.$BASE_URL/v2/device($DEVICE_ID)" -H "Authorization: Bearer $authToken" -H "Content-Type: application/json" --data-binary '{"build":'$BUILD_ID'}'

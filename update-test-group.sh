@@ -5,7 +5,8 @@
 
 ./check-configuration.sh || exit 1
 
-COMMIT_HASH=$1
+APP_ID=$1
+COMMIT_HASH=$2
 source ./resin.env
 
 TARGET_TAG_KEY='TEST'

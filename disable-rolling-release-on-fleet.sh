@@ -4,6 +4,7 @@
 # You will also need to set a specific Application commit to lock the App to, use the "set-fleet-commit-hash.sh"
 # script to lock to a specific commit from your list of builds in your "Build logs" page on the dashboard.
 ############################################################################################################
+## usage: ./disable-rolling-release-on-fleet.sh <APP_ID>
 
 ./check-configuration.sh || exit 1
 

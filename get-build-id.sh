@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
-## This script returns the `build_id` for a specific commit on a resin.io application.
-## usage: ./get-build-id.sh <FULL_COMMIT_HASH>
+## This script returns the `build_id` for a specific commit on a resin.io application specified as arg $1.
+## usage: ./get-build-id.sh <APP_ID> <FULL_COMMIT_HASH>
 
 ./check-configuration.sh || exit 1
 

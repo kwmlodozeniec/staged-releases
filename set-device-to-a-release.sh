@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
-## This script sets a single device to a specific build of a commit.
+## This script sets a single device to a specific release of a commit.
 ## To set a device back to the most recent release, run this script without a commit hash parameter.
-## Usage: ./set-device-to-a-build.sh <APP_ID> <DEVICE_UUID> <FULL_COMMIT_HASH>
-## Usage: ./set-device-to-a-build.sh <APP_ID> <DEVICE_UUID>
+## Usage: ./set-device-to-a-release.sh <APP_ID> <DEVICE_UUID> <FULL_COMMIT_HASH>
+## Usage: ./set-device-to-a-releasesh <APP_ID> <DEVICE_UUID>
 
 ./check-configuration.sh || exit 1
 

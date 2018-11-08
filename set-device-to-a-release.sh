@@ -23,7 +23,7 @@ COMMIT=$3
 if [ -z $COMMIT ]; then
 	RELEASE_ID="null"
 else
-	RELEASE_ID=$(./get-release-id.sh $COMMIT)
+	RELEASE_ID=$(./get-release-id.sh $APP_ID $COMMIT)
 fi
 echo "setting device $DEVICE_ID to commit $COMMIT with release = $RELEASE_ID"
 curl -X PATCH "https://api.$BASE_URL/v4/device($DEVICE_ID)" -H "Authorization: Bearer $authToken" -H "Content-Type: application/json" --data-binary '{"should_be_running__release":'$RELEASE_ID'}'

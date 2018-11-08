@@ -21,9 +21,9 @@ fi
 
 COMMIT=$3
 if [ -z $COMMIT ]; then
-	BUILD_ID="null"
+	RELEASE_ID="null"
 else
-	BUILD_ID=$(./get-build-id.sh $APP_ID $COMMIT)
+	RELEASE_ID=$(./get-release-id.sh $COMMIT)
 fi
-echo "setting device $DEVICE_ID to commit $COMMIT with buildID = $BUILD_ID"
-curl -X PATCH "https://api.$BASE_URL/v2/device($DEVICE_ID)" -H "Authorization: Bearer $authToken" -H "Content-Type: application/json" --data-binary '{"build":'$BUILD_ID'}'
+echo "setting device $DEVICE_ID to commit $COMMIT with release = $RELEASE_ID"
+curl -X PATCH "https://api.$BASE_URL/v4/device($DEVICE_ID)" -H "Authorization: Bearer $authToken" -H "Content-Type: application/json" --data-binary '{"should_be_running__release":'$RELEASE_ID'}'
